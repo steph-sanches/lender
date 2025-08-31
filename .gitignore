@@ -1,0 +1,17 @@
+# Angular
+node_modules/
+dist/
+
+# Spring Boot
+target/
+
+# IDE
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Env/Secrets
+.env
