@@ -1,3 +1,11 @@
-<h1>Lender App</h1>
+<h1>Lender</h1>
 
-<p>Backend status: {{ status }}</p>
+<button (click)="auth.loginWithGoogle()">Sign in with Google</button>
+<button (click)="auth.logout()">Sign out</button>
+
+<div *ngIf="(auth.user$ | async) as u; else guest">
+  <p>Logged in as: {{ u.email }} (uid: {{ u.uid }})</p>
+</div>
+<ng-template #guest>
+  <p>Not signed in.</p>
+</ng-template>

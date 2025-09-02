@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {HealthService} from './core/health.service';
+import { AuthService } from './core/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +15,7 @@ export class AppComponent {
   status='checking'
 
 
-  constructor(private health : HealthService) {}
+  constructor(private health : HealthService, public auth: AuthService) {}
 
   ngOnInit(){
     this.health.ping().subscribe({
@@ -23,3 +24,6 @@ export class AppComponent {
     });
   }
 }
+
+
+
