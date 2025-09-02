@@ -6,6 +6,15 @@
 <div *ngIf="(auth.user$ | async) as u; else guest">
   <p>Logged in as: {{ u.email }} (uid: {{ u.uid }})</p>
 </div>
+
+<div *ngIf="(auth.user$ | async) as u">
+  <h3>My loans</h3>
+  <ul>
+    <li *ngFor="let loan of (loans$ | async)">
+      {{ loan.label }} — {{ loan.status }} — {{ loan.type }}
+    </li>
+  </ul>
+</div>
 <ng-template #guest>
   <p>Not signed in.</p>
 </ng-template>
